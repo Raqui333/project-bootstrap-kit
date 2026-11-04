@@ -15,23 +15,29 @@ stack.
 ```
 project-bootstrap-kit/
 ├── AGENTS.md                    # instruções para agentes de codificação (copiar para a raiz)
+├── GOTCHAS.md                   # comportamentos surpreendentes de libs/sistemas externos (copiar para a raiz)
 ├── docs/
 │   ├── architecture/
 │   │   ├── overview.md          # template do "como" o sistema conversa entre si
 │   │   └── TEMPLATE.md          # template de doc de módulo individual
-│   └── decisions/
-│       ├── README.md            # índice de ADRs (template)
-│       └── TEMPLATE.md          # template de ADR
+│   ├── decisions/
+│   │   ├── README.md            # índice de ADRs (template)
+│   │   └── TEMPLATE.md          # template de ADR
+│   └── rfcs/
+│       ├── README.md            # quando usar RFC e índice
+│       └── TEMPLATE.md          # template de RFC (perguntas com dono, spikes, casos negativos)
 ├── tasks/
 │   ├── TEMPLATE.md              # template de tarefa de backlog
 │   └── backlog/README.md        # template do índice de fases do backlog
 ├── skills/                      # skills agnósticas (copiar para .claude/skills/)
 │   ├── setup-projeto/           # instala o kit num projeto e sincroniza atualizações depois
 │   ├── criar-task/
+│   ├── refinar-task/            # definição de pronto: entender antes de implementar
 │   ├── concluir-task/
 │   ├── criar-decisao-adr/
 │   └── doc-arquitetura-modulo/
 └── best-practices/               # compilado de boas práticas, referenciado pelo AGENTS.md
+    ├── descoberta-e-requisitos.md  # padrões reais de retrabalho e a prática que os evita
     ├── seguranca.md
     ├── tratamento-de-erros.md
     ├── testes.md
@@ -51,6 +57,7 @@ equivalentes são:
 1. **Copiar a estrutura** para a raiz do novo repositório:
    ```bash
    cp project-bootstrap-kit/AGENTS.md ./AGENTS.md
+   cp project-bootstrap-kit/GOTCHAS.md ./GOTCHAS.md
    cp -r project-bootstrap-kit/docs ./docs
    cp -r project-bootstrap-kit/tasks ./tasks
    cp -r project-bootstrap-kit/skills ./.claude/skills
@@ -96,6 +103,13 @@ deste tipo de projeto com agentes de codificação:
 | Erro de infraestrutura vaza detalhe sensível/stack trace para o cliente | `best-practices/tratamento-de-erros.md` |
 | Testes usam mocks que mascaram bugs reais de integração | `best-practices/testes.md` |
 | Pipeline de CI cresce sem cobrir os mesmos checks que rodam localmente | `best-practices/ci-cd.md` |
+| Requisito mal interpretado; item `[PROPOSTA]` do PRD implementado como fato e revertido | skill `refinar-task` (Origem literal, Entendimento, perguntas bloqueantes) |
+| Pendência/decisão descoberta no meio da execução ("1. Decidir se...") | `refinar-task` + `criar-task` (decisão vira task própria); campo "Dependências externas" |
+| Task curta demais: esquece consumidor, caminho de escrita, caso de borda | seções "Mapa de impacto" e "Casos de borda" do template de task |
+| RFC com perguntas em aberto sem dono, implementada mesmo assim | `docs/rfcs/TEMPLATE.md` (pergunta com dono, bloqueio e resposta datada) |
+| Simulador/ADR construído sobre premissa de API externa que a real contradiz | regra "spike antes do ADR" (`AGENTS.md`, `criar-decisao-adr`) |
+| `(DONE)` com critérios de aceite desmarcados; lacunas viram tasks de "ajuste" | `concluir-task` (critério marcado com evidência, Registro de implementação) |
+| Gotcha de lib redescoberto do zero ou espalhado em comentários | `GOTCHAS.md` como fonte única |
 
 ## O que este kit **não** é
 

@@ -30,6 +30,7 @@ conferir/reforçar o que já está instalado).
 1. **Copiar a estrutura** do kit para a raiz do projeto alvo:
    ```bash
    cp <bootstrap>/AGENTS.md <alvo>/AGENTS.md
+   cp <bootstrap>/GOTCHAS.md <alvo>/GOTCHAS.md
    cp -r <bootstrap>/docs <alvo>/docs
    cp -r <bootstrap>/tasks <alvo>/tasks
    cp -r <bootstrap>/skills <alvo>/.claude/skills
@@ -55,6 +56,19 @@ conferir/reforçar o que já está instalado).
    - Se há operações que exigem auditoria.
    - Se o projeto gera doc de API a partir de decorators/tipos runtime (afeta
      a seção de contratos de resposta do `AGENTS.md`).
+   - **Quais são as fontes de requisito** (PRD, Linear/Jira, planilha,
+     pedidos de stakeholder) e onde estão. O que estiver fora do repositório
+     e for a base do trabalho deve ser salvo/linkado em `docs/` — pedido que
+     só existe fora do repo se perde e sobra só a interpretação.
+
+2b. **Varrer o documento de produto por incerteza**, se houver: procurar
+   `[PROPOSTA]`, "validar", "candidato", "a definir", "TBD", alternativas
+   com "ou". Listar para o usuário e registrar em `tasks/backlog/README.md`
+   ("Decisões em aberto que impactam o backlog") — cada item vira task de
+   decisão antes da implementação que depende dele. Apontar também o que o
+   documento não cobre e costuma virar fase inserida às pressas (navegação/
+   área autenticada, fluxos de conta, fuso/datas, auditoria, paginação) —
+   ver "Ao quebrar um documento de produto em tasks" na skill `criar-task`.
 
 3. **Preencher os marcadores `<...>` de `AGENTS.md`** no alvo com as
    respostas do passo 2, removendo a nota de "Template" no topo do arquivo e
@@ -111,11 +125,17 @@ usuário só quer conferir se o alvo está com tudo em dia.
    decidir se quer incorporá-las manualmente ou pedir para você redigi-las.
 
 4. **Comparar templates** (`tasks/TEMPLATE.md`, `docs/architecture/TEMPLATE.md`,
-   `docs/decisions/TEMPLATE.md`): se o template do kit mudou de forma
+   `docs/decisions/TEMPLATE.md`, `docs/rfcs/TEMPLATE.md`): se o template do kit mudou de forma
    estrutural (campo novo, seção nova), avisar o usuário — não sobrescrever
    templates do alvo silenciosamente, pois tasks/ADRs já criados seguem o
    formato antigo e trocar o template no meio do projeto pode gerar
    inconsistência.
+
+4b. **Arquivos novos de estrutura** (`GOTCHAS.md`, `docs/rfcs/`): se não
+   existirem no alvo, copiar. Se o alvo já tiver equivalente com outro nome
+   ou lugar (ex.: `GOTACHAS.md`, seção "Gotchas" no `AGENTS.md`, RFCs sem
+   template), **não duplicar** — apontar e perguntar se quer migrar para o
+   formato do kit.
 
 5. **Reportar um resumo objetivo** ao final: o que foi copiado direto (sem
    risco), o que precisa de decisão do usuário (com o diff relevante), e o

@@ -25,6 +25,48 @@ observabilidade etc. Só o que já é fato no projeto, não aspiração.>`
   Ex.: "PT-BR" ou "inglês". Ser explícito também sobre logs internos e
   mensagens de erro visíveis ao usuário final, que podem ter regra diferente.>`
 
+## Antes de implementar: entender, não adivinhar
+
+O retrabalho mais caro neste tipo de projeto vem de começar cedo demais, não
+de bug de código. Ver `docs/best-practices/descoberta-e-requisitos.md` para
+os casos reais por trás de cada regra.
+
+- **Task não trivial só é implementada quando está `Pronta`** (skill
+  `refinar-task`): pedido original registrado literalmente, entendimento
+  reformulado, mapa de impacto feito a partir do código, premissas críticas
+  verificadas, sem pergunta bloqueante em aberto.
+- **Proposta não é requisito.** Item do documento de produto marcado como
+  `[PROPOSTA]`, "validar", "candidato", "a definir" vira pergunta ou task de
+  decisão — nunca implementado como fato.
+- **Lacuna é pergunta.** Se o requisito não cobre um caso, não inventar a
+  regra: perguntar, ou declarar visivelmente o default assumido.
+- **Decisão não se esconde em passo de implementação.** "Decidir X" é uma task
+  própria, antes.
+- **Comportamento externo se verifica antes de desenhar.** Premissa sobre API
+  de terceiro, lib ou runtime que sustenta o desenho → spike contra o sistema
+  real antes do ADR, do simulador ou do mock.
+- **Perguntas vêm juntas e cedo**, com opções e consequências, não uma a uma
+  no meio da implementação.
+- **Ao explicar plano ou resultado**, dizer explicitamente premissas, o que
+  fica fora e o que não foi feito.
+
+Trabalho grande ou ambíguo (vários módulos, integração externa, mudança de
+modelo conceitual) passa por uma RFC em `docs/rfcs/` antes de virar tasks.
+
+## Gotchas conhecidos
+
+- **[GOTCHAS.md](./GOTCHAS.md)** — comportamentos não óbvios de libs,
+  runtimes e sistemas externos já descobertos neste projeto. Consultar antes
+  de planejar uma task na área e antes de investigar um bug que "não faz
+  sentido".
+- `GOTCHAS.md` é o **único** ponto de escrita do gotcha (comentário de código
+  aponta para lá: `// ver GOTCHAS.md #N`; ADR registra o porquê da decisão e
+  referencia a entrada). Só entra o que foi confirmado com evidência.
+- Ao achar um gotcha, varrer o código pelo mesmo padrão — raramente ele existe
+  num lugar só.
+- Gotcha que causou erro duas vezes vira checagem automática (script, hook,
+  CI), não só texto.
+
 ## Documentação de arquitetura
 
 - A pasta `docs/architecture/` explica **como o sistema conversa entre si**
@@ -188,6 +230,14 @@ banco real ou fake?), o que é mockado (só serviços externos de terceiro) e o
 que nunca deve ser mockado (a própria camada de dados/banco sob teste — mocks
 aqui mascaram bugs reais de query, RLS/permissão e serialização). Ver
 docs/best-practices/testes.md.>`
+
+## Conclusão de tasks
+
+`(DONE)` significa critérios de aceite cumpridos **e marcados com
+evidência** — não só lint/test/build verdes. Critério não cumprido exige
+aceite do usuário e task de continuação. Descobertas da implementação vão para
+o "Registro de implementação" da task, `GOTCHAS.md` ou task nova; nunca ficam
+só na conversa. Ver skill `concluir-task`.
 
 ## Regras específicas do projeto
 

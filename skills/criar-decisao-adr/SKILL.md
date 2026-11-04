@@ -24,6 +24,20 @@ Vale a pena criar um ADR quando a decisão:
 de algo já decidido, ou um detalhe de implementação sem trade-off real, não
 criar. Na dúvida, perguntar ao usuário antes de gerar o arquivo.
 
+## Antes de escrever: a decisão depende de comportamento externo?
+
+Se a decisão se apoia em como uma API de terceiro, lib ou runtime se comporta
+(formato de token, atomicidade de uma operação, propagação de contexto,
+limites), **o spike/teste vem antes do ADR**. Nos projetos anteriores, ADRs
+escritos antes da evidência foram substituídos logo depois (estratégia de
+credencial refeita após o spike; guard trocado por interceptor quando o
+primeiro e2e real contradisse a premissa). Sem evidência ainda: registrar o
+ADR como `Proposta` e citar o spike pendente, ou esperar.
+
+Se a decisão é de **produto** (comportamento que o usuário final vê), ela
+precisa de resposta registrada de quem decide (nome/papel e data) — o agente
+não aceita a própria proposta.
+
 ## Passos
 
 1. **Determinar o próximo número sequencial**:
@@ -57,7 +71,13 @@ criar. Na dúvida, perguntar ao usuário antes de gerar o arquivo.
    (mesmo formato das existentes: `| [NNNN](./NNNN-slug.md) | Decisão |
    Status |`), ao final da tabela (ordem cronológica de numeração).
 
-5. **Se a decisão também mudar comportamento documentado em
+5. **Se a decisão substitui (total ou parcialmente) um ADR anterior**,
+   atualizar o `## Status` do antigo para `Substituída por NNNN` (ou
+   `Substituída parcialmente por NNNN`) e explicar no novo **o que** se
+   mostrou errado na premissa anterior — é o registro que evita repetir o
+   erro.
+
+6. **Se a decisão também mudar comportamento documentado em
    `docs/architecture/`**, avisar que o doc de arquitetura do módulo
    correspondente pode precisar de atualização (acionar
    `doc-arquitetura-modulo` separadamente) — não editar o doc de arquitetura
