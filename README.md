@@ -17,6 +17,13 @@ project-bootstrap-kit/
 ├── AGENTS.md                    # instruções para agentes de codificação (copiar para a raiz)
 ├── GOTCHAS.md                   # comportamentos surpreendentes de libs/sistemas externos (copiar para a raiz)
 ├── docs/
+│   ├── best-practices/          # compilado de boas práticas, referenciado pelo AGENTS.md
+│   │   ├── descoberta-e-requisitos.md  # padrões reais de retrabalho e a prática que os evita
+│   │   ├── seguranca.md
+│   │   ├── tratamento-de-erros.md
+│   │   ├── testes.md
+│   │   ├── manutenibilidade.md
+│   │   └── ci-cd.md
 │   ├── architecture/
 │   │   ├── overview.md          # template do "como" o sistema conversa entre si
 │   │   └── TEMPLATE.md          # template de doc de módulo individual
@@ -36,13 +43,6 @@ project-bootstrap-kit/
 │   ├── concluir-task/
 │   ├── criar-decisao-adr/
 │   └── doc-arquitetura-modulo/
-└── best-practices/               # compilado de boas práticas, referenciado pelo AGENTS.md
-    ├── descoberta-e-requisitos.md  # padrões reais de retrabalho e a prática que os evita
-    ├── seguranca.md
-    ├── tratamento-de-erros.md
-    ├── testes.md
-    ├── manutenibilidade.md
-    └── ci-cd.md
 ```
 
 ## Como usar em um projeto novo
@@ -61,13 +61,12 @@ equivalentes são:
    cp -r project-bootstrap-kit/docs ./docs
    cp -r project-bootstrap-kit/tasks ./tasks
    cp -r project-bootstrap-kit/skills ./.claude/skills
-   cp -r project-bootstrap-kit/best-practices ./docs/best-practices
    ```
 2. **Preencher os marcadores** de `AGENTS.md` e `docs/architecture/overview.md`:
    nome do produto, stack real, comandos reais (lint/typecheck/test/build),
    convenção de idioma, e as regras de segurança específicas do domínio
    (multi-tenancy, PII, compliance setorial etc. — usar
-   `best-practices/seguranca.md` como checklist de partida, não como lista
+   `docs/best-practices/seguranca.md` como checklist de partida, não como lista
    fechada).
 3. **Criar `CLAUDE.md`** (ou equivalente do agente usado) apontando para
    `AGENTS.md` via import (`@AGENTS.md`), se o agente suportar — mantém uma
@@ -80,7 +79,7 @@ equivalentes são:
 ### Mantendo o projeto em dia com atualizações do kit
 
 Quando `project-bootstrap-kit` ganhar uma skill nova, um item novo em
-`best-practices/` ou uma seção nova em algum template, acione `setup-projeto`
+`docs/best-practices/` ou uma seção nova em algum template, acione `setup-projeto`
 de novo (agora apontando para o projeto já instalado) — ela detecta que o kit
 já existe no alvo, entra em modo sincronização e só aplica o que estiver
 faltando, sempre mostrando diffs e pedindo confirmação antes de sobrescrever
@@ -100,9 +99,9 @@ deste tipo de projeto com agentes de codificação:
 | Decisão de arquitetura é esquecida/questionada meses depois sem contexto | ADR (`docs/decisions/`) |
 | Documentação de módulo nunca é escrita porque "põe-se depois" | skill `doc-arquitetura-modulo`, acionada ao concluir o módulo |
 | Afirmação sobre comportamento de runtime/lib vira "fato" sem nunca ter sido testada | seção "Como foi verificado" do template de ADR |
-| Erro de infraestrutura vaza detalhe sensível/stack trace para o cliente | `best-practices/tratamento-de-erros.md` |
-| Testes usam mocks que mascaram bugs reais de integração | `best-practices/testes.md` |
-| Pipeline de CI cresce sem cobrir os mesmos checks que rodam localmente | `best-practices/ci-cd.md` |
+| Erro de infraestrutura vaza detalhe sensível/stack trace para o cliente | `docs/best-practices/tratamento-de-erros.md` |
+| Testes usam mocks que mascaram bugs reais de integração | `docs/best-practices/testes.md` |
+| Pipeline de CI cresce sem cobrir os mesmos checks que rodam localmente | `docs/best-practices/ci-cd.md` |
 | Requisito mal interpretado; item `[PROPOSTA]` do PRD implementado como fato e revertido | skill `refinar-task` (Origem literal, Entendimento, perguntas bloqueantes) |
 | Pendência/decisão descoberta no meio da execução ("1. Decidir se...") | `refinar-task` + `criar-task` (decisão vira task própria); campo "Dependências externas" |
 | Task curta demais: esquece consumidor, caminho de escrita, caso de borda | seções "Mapa de impacto" e "Casos de borda" do template de task |

@@ -34,7 +34,6 @@ conferir/reforçar o que já está instalado).
    cp -r <bootstrap>/docs <alvo>/docs
    cp -r <bootstrap>/tasks <alvo>/tasks
    cp -r <bootstrap>/skills <alvo>/.claude/skills
-   cp -r <bootstrap>/best-practices <alvo>/docs/best-practices
    ```
    Se o alvo já tiver algum desses diretórios com conteúdo (ex.: `docs/` de
    produto pré-existente), **não sobrescrever** — copiar só o que falta e
@@ -103,7 +102,7 @@ conferir/reforçar o que já está instalado).
 ## Modo sincronização
 
 Usado quando o kit já foi instalado antes e (a) `project-bootstrap-kit` recebeu
-atualizações (nova skill, novo item em `best-practices/`, seção nova no
+atualizações (nova skill, novo item em `docs/best-practices/`, seção nova no
 `AGENTS.md` template) que ainda não chegaram ao projeto alvo, ou (b) o
 usuário só quer conferir se o alvo está com tudo em dia.
 
@@ -115,7 +114,7 @@ usuário só quer conferir se o alvo está com tudo em dia.
      customização proposital no projeto) — nunca sobrescrever skill
      customizada sem confirmar.
 
-2. **Comparar `best-practices/`**: mesmo processo — arquivo novo no kit que
+2. **Comparar `docs/best-practices/`**: mesmo processo — arquivo novo no kit que
    não existe em `<alvo>/docs/best-practices/` é copiado direto (é conteúdo
    de referência, raramente customizado por projeto); arquivo que já existe
    nos dois e diverge, mostrar diff e perguntar antes de sobrescrever.
