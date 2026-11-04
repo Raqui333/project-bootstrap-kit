@@ -39,6 +39,13 @@ e as lacunas apareceram semanas depois como tasks de "ajuste"/"correção".
    <test>
    <build>
    ```
+   Depois, os **e2e afetados** pela mudança (specs que exercitam as
+   rotas/módulos tocados), com o comando de spec específico do `AGENTS.md`.
+   A suíte e2e completa é gate do CI; rodar localmente só se a mudança for
+   transversal (lista de áreas no `AGENTS.md`) ou se o usuário pedir.
+   Critério "e2e verde" numa task = e2e afetados verdes local + suíte
+   completa verde no CI. Ao reportar, dizer quais specs e2e rodaram e se a
+   suíte completa rodou.
    Se algum falhar, corrigir antes de continuar.
 
 4. **Preencher "Registro de implementação"** na task:
@@ -89,7 +96,10 @@ e as lacunas apareceram semanas depois como tasks de "ajuste"/"correção".
 
 - Não marcar `(DONE)` com critério de aceite desmarcado sem aceite explícito
   do usuário e task de continuação criada.
-- Não marcar `(DONE)` com qualquer passo da ordem de verificação falhando.
+- Não marcar `(DONE)` com qualquer passo da ordem de verificação ou um e2e
+  afetado falhando.
+- Não afirmar "e2e verde" sem dizer o escopo (quais specs; suíte completa
+  local, só no CI, ou não rodou).
 - Não deixar descoberta de implementação só na conversa — ela vai para o
   Registro de implementação, `GOTCHAS.md` ou uma task nova.
 - Não mover a pasta para `done/` se sobrar task pendente por motivo de

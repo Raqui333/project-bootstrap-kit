@@ -109,6 +109,8 @@ Marcar os que se aplicam e dizer como serão tratados/testados:
 - `<Listar só as convenções do AGENTS.md relevantes ao escopo desta task
   específica — não copiar a lista inteira sem pensar.>`
 - Rodar a ordem de verificação completa do `AGENTS.md` ao concluir.
+- e2e: rodar localmente os specs afetados; a suíte completa é gate do CI (só
+  local se a mudança for transversal — ver `AGENTS.md`).
 
 ## Referências no documento de produto
 

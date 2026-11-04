@@ -46,8 +46,10 @@
 
 Nenhuma tarefa é considerada concluída sem passar pela ordem de verificação
 definida no `AGENTS.md` (tipicamente: lint → typecheck → format → test →
-build → e2e). A ordem importa: começar pelo mais rápido/barato de rodar
-permite falhar cedo sem gastar tempo em passos mais lentos.
+build → e2e afetados). A ordem importa: começar pelo mais rápido/barato de
+rodar permite falhar cedo sem gastar tempo em passos mais lentos. A suíte e2e
+completa é o gate de merge no CI; localmente, roda-se o subconjunto afetado
+pela mudança (a suíte inteira só quando a mudança é transversal).
 
 ## Skills/automação como memória de processo
 

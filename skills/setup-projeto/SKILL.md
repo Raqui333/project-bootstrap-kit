@@ -49,6 +49,9 @@ conferir/reforçar o que já está instalado).
      `package.json`/`Makefile`/equivalente do alvo antes de perguntar — só
      perguntar o que não conseguir inferir).
    - Ordem de verificação antes de commitar (mais rápido → mais lento).
+   - Como rodar um spec e2e específico, qual job de CI roda a suíte e2e
+     completa e quais áreas são transversais (exigem a suíte completa
+     localmente).
    - Idioma de comentários/nomes/docs vs. mensagens visíveis ao usuário
      final.
    - Se o domínio tem multi-tenancy/multi-cliente/dado sensível e qual o

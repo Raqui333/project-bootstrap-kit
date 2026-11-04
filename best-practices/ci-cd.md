@@ -14,6 +14,12 @@ em job separado e paralelo ao job de verificação rápida (lint/typecheck/
 format/test/build) — não serializado atrás dele — para não pagar o custo de
 tempo duas vezes sem necessidade.
 
+Com e2e lento, a suíte completa é o **gate do CI**, não passo local
+obrigatório: localmente roda-se só os specs afetados pela mudança, e a suíte
+inteira apenas quando a mudança é transversal (auth global, isolamento de
+dado, migrations, infra de teste etc.). O CI continua rodando tudo em todo
+PR — o que muda é só o custo local, não o que bloqueia o merge.
+
 ## Cache de dependências
 
 Cachear o diretório de cache do gerenciador de pacotes, chaveado pelo hash

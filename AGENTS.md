@@ -160,7 +160,26 @@ de rodar" → "mais lento/mais caro", para falhar cedo.>`
 3. `<format>`
 4. `<test unitário>`
 5. `<build>`
-6. `<test e2e, se rodar localmente/no fluxo de conclusão de task>`
+6. **e2e afetados** — só os specs e2e que exercitam o que a mudança tocou
+   (rotas, módulos, fluxos), escolhidos por quem altera (grep pela rota, pelo
+   tipo/enum ou pelo módulo):
+   ```bash
+   <comando para rodar specs e2e específicos, ex.: test:e2e -- test/<arquivo>.e2e-spec.ts>
+   ```
+
+### Suíte e2e completa: gate do CI, não passo local obrigatório
+
+- A suíte e2e completa (`<comando test:e2e>`) é o gate de merge no CI
+  (`<job/arquivo de workflow>`). Localmente, o passo obrigatório é o 6 acima
+  (e2e afetados).
+- Rodar a suíte completa **localmente** só quando a mudança for transversal —
+  `<listar as áreas transversais reais do projeto, ex.: auditoria, isolamento
+  de tenant/RLS, auth/guards globais, infra/bootstrap de teste, migrations/
+  contrato do banco, módulos globais>` — ou quando o usuário pedir.
+- Critério de aceite de task que diga "e2e verde" significa: e2e afetados
+  verdes localmente + suíte completa verde no CI. Ao reportar a task, listar
+  quais specs e2e foram rodados (e se a suíte completa rodou ou não) — nunca
+  afirmar "e2e verde" sem dizer o escopo.
 
 ---
 
