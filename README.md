@@ -30,9 +30,12 @@ project-bootstrap-kit/
 │   ├── decisions/
 │   │   ├── README.md            # índice de ADRs (template)
 │   │   └── TEMPLATE.md          # template de ADR
-│   └── rfcs/
-│       ├── README.md            # quando usar RFC e índice
-│       └── TEMPLATE.md          # template de RFC (perguntas com dono, spikes, casos negativos)
+│   ├── rfcs/
+│   │   ├── README.md            # fluxo story → RFC → spike → SPEC → tasks e índice
+│   │   └── TEMPLATE.md          # template de RFC (o quê/por quê, hipóteses, pendências de produto)
+│   ├── specs/
+│   │   ├── README.md            # índice de SPECs (mesmo número do RFC)
+│   │   └── TEMPLATE.md          # template de SPEC (Partes A/B/C: o como, em detalhe)
 ├── tasks/
 │   ├── TEMPLATE.md              # template de tarefa de backlog
 │   └── backlog/README.md        # template do índice de fases do backlog
@@ -41,6 +44,9 @@ project-bootstrap-kit/
 │   ├── criar-task/
 │   ├── refinar-task/            # definição de pronto: entender antes de implementar
 │   ├── concluir-task/
+│   ├── interpretar-story/       # story de produto → leitura técnica (genérico × particular)
+│   ├── criar-rfc/               # RFC a partir de story/problema, com evidência e hipóteses
+│   ├── criar-spec/              # SPEC detalhada de um RFC aceito
 │   ├── criar-decisao-adr/
 │   └── doc-arquitetura-modulo/
 ```
@@ -105,7 +111,10 @@ deste tipo de projeto com agentes de codificação:
 | Requisito mal interpretado; item `[PROPOSTA]` do PRD implementado como fato e revertido | skill `refinar-task` (Origem literal, Entendimento, perguntas bloqueantes) |
 | Pendência/decisão descoberta no meio da execução ("1. Decidir se...") | `refinar-task` + `criar-task` (decisão vira task própria); campo "Dependências externas" |
 | Task curta demais: esquece consumidor, caminho de escrita, caso de borda | seções "Mapa de impacto" e "Casos de borda" do template de task |
-| RFC com perguntas em aberto sem dono, implementada mesmo assim | `docs/rfcs/TEMPLATE.md` (pergunta com dono, bloqueio e resposta datada) |
+| RFC com perguntas em aberto sem dono, implementada mesmo assim | `docs/rfcs/TEMPLATE.md` (pendência de produto com dono, bloqueio e resposta datada) |
+| Story de produto amarrada a um cliente, com contradições e detalhe de implementação inventado | skill `interpretar-story` (núcleo genérico × configuração por cliente) |
+| Desenho e detalhe técnico misturados num documento só; decisão reaberta na implementação | `criar-rfc` (o quê/por quê) → `criar-spec` (o como), SPEC não reabre o RFC |
+| Dúvida técnica deixada como "pergunta em aberto" até a implementação | hipótese + spike somente leitura antes da SPEC |
 | Simulador/ADR construído sobre premissa de API externa que a real contradiz | regra "spike antes do ADR" (`AGENTS.md`, `criar-decisao-adr`) |
 | `(DONE)` com critérios de aceite desmarcados; lacunas viram tasks de "ajuste" | `concluir-task` (critério marcado com evidência, Registro de implementação) |
 | Gotcha de lib redescoberto do zero ou espalhado em comentários | `GOTCHAS.md` como fonte única |

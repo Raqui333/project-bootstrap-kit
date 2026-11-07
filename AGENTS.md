@@ -51,7 +51,21 @@ os casos reais por trás de cada regra.
   fica fora e o que não foi feito.
 
 Trabalho grande ou ambíguo (vários módulos, integração externa, mudança de
-modelo conceitual) passa por uma RFC em `docs/rfcs/` antes de virar tasks.
+modelo conceitual) segue o fluxo **story → RFC → spike → SPEC → tasks**:
+
+- **Story/pedido de produto** não é fonte da verdade: antes de usar, passar pela
+  skill `interpretar-story` (separa o genérico do particular de cliente,
+  aponta contradições, levanta perguntas para produto).
+- **RFC** (`docs/rfcs/`, skill `criar-rfc`) decide o **quê** e o **porquê**.
+- **Spike** valida premissa sobre sistema externo/lib, **somente leitura**;
+  evidência em documento de validação do spike (linkado do RFC) ou `GOTCHAS.md`.
+  Dúvida técnica vira hipótese + spike, nunca "pergunta em aberto".
+- **SPEC** (`docs/specs/`, skill `criar-spec`, mesmo número do RFC) decide o
+  **como**, só depois do RFC aceito, e não reabre decisão do RFC.
+- **Tasks** (`criar-task`) nascem da SPEC. Pendência de produto bloqueante sem
+  resposta impede virar tasks.
+- Valor específico de cliente é **configuração/dado** (ou fixture), nunca regra
+  no código.
 
 ## Gotchas conhecidos
 

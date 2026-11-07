@@ -127,13 +127,14 @@ usuário só quer conferir se o alvo está com tudo em dia.
    decidir se quer incorporá-las manualmente ou pedir para você redigi-las.
 
 4. **Comparar templates** (`tasks/TEMPLATE.md`, `docs/architecture/TEMPLATE.md`,
-   `docs/decisions/TEMPLATE.md`, `docs/rfcs/TEMPLATE.md`): se o template do kit mudou de forma
+   `docs/decisions/TEMPLATE.md`, `docs/rfcs/TEMPLATE.md`, `docs/specs/TEMPLATE.md`): se o template do kit mudou de forma
    estrutural (campo novo, seção nova), avisar o usuário — não sobrescrever
    templates do alvo silenciosamente, pois tasks/ADRs já criados seguem o
    formato antigo e trocar o template no meio do projeto pode gerar
    inconsistência.
 
-4b. **Arquivos novos de estrutura** (`GOTCHAS.md`, `docs/rfcs/`): se não
+4b. **Arquivos novos de estrutura** (`GOTCHAS.md`, `docs/rfcs/`,
+   `docs/specs/`): se não
    existirem no alvo, copiar. Se o alvo já tiver equivalente com outro nome
    ou lugar (ex.: `GOTACHAS.md`, seção "Gotchas" no `AGENTS.md`, RFCs sem
    template), **não duplicar** — apontar e perguntar se quer migrar para o
