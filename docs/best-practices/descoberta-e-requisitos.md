@@ -7,7 +7,7 @@ começar a implementar antes de entender, de pendência descoberta tarde, ou de
 task descrita de forma curta demais.
 
 Ferramentas do kit que aplicam isto: template de task (`tasks/TEMPLATE.md`),
-skill `refinar-task`, RFC (`docs/rfcs/`), `GOTCHAS.md`, skill
+RFC (`docs/rfcs/`), `GOTCHAS.md`, skill
 `concluir-task`.
 
 ## 1. Interpretação do problema
@@ -31,7 +31,7 @@ skill `refinar-task`, RFC (`docs/rfcs/`), `GOTCHAS.md`, skill
 | ADR de estratégia de credencial escrito antes do spike; spike mostrou token de 12h e o ADR foi refeito. | Spike → ADR, nessa ordem, quando a decisão depende de comportamento externo. |
 | APIs davam 403/404, só funcionava via VPN, liberação de TI pendente — descoberto ao executar os lotes. | Checklist de dependências externas (acesso, credencial, rede, permissão, liberação) **na abertura** da trilha, com quem destrava. |
 | Restrição de plataforma (volume sem permissão para não-root) descoberta no deploy; containers voltaram para root. | Incluir "ambiente de deploy" nas dependências externas; validar no ambiente real cedo. |
-| Feature planejada e cancelada por LGPD. | Checar dado sensível/compliance no refinamento, não depois do plano. |
+| Feature planejada e cancelada por LGPD. | Checar dado sensível/compliance ao definir a task, não depois do plano. |
 | Defeito de fundação (data em UTC adiantando 3h) só apareceu quando chegou a feature que dependia dele. | Checklist de fundação no início do projeto: fuso/dia civil, tipos temporais, paginação no banco, e2e com banco real. |
 
 ## 3. Tasks descritas de forma simples demais

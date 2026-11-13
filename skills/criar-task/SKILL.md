@@ -9,9 +9,7 @@ Cria um novo arquivo de tarefa dentro de `tasks/backlog/<fase>/` (ou
 `tasks/pendentes/<fase>/` se for uma continuação de algo já parado), seguindo
 `tasks/TEMPLATE.md` e as convenções do `AGENTS.md`.
 
-Criar a task **não** é o mesmo que deixá-la pronta para implementar: o
-refinamento (perguntas, premissas, mapa de impacto) é a skill `refinar-task`.
-Aqui o foco é registrar bem a origem e não esconder decisões dentro de passos.
+O foco é registrar bem a origem e não esconder decisões dentro de passos.
 
 ## Passos
 
@@ -50,8 +48,7 @@ Aqui o foco é registrar bem a origem e não esconder decisões dentro de passos
 
 6. **Preencher o template.** O que já se sabe vai preenchido; o que não se
    sabe vai como pergunta em aberto ou premissa `A verificar` — **não**
-   inventar para fechar o campo. Prontidão começa em `Rascunho` (ou
-   `Bloqueada` se já houver pergunta bloqueante conhecida).
+   inventar para fechar o campo.
    - Fora de escopo: ao menos um item quando houver vizinhança óbvia
      (ex.: "só leitura — escrita fica na 0005").
    - Critérios de aceite verificáveis, incluindo ao menos um caso negativo/
@@ -62,9 +59,6 @@ Aqui o foco é registrar bem a origem e não esconder decisões dentro de passos
 7. **Atualizar o `README.md` da pasta da fase** incluindo a nova task na
    lista, mantendo a ordem numérica. Se a task pertence a uma fase nova,
    atualizar também `tasks/backlog/README.md`.
-
-8. **Sugerir `refinar-task`** antes de começar a implementação, se a task
-   não for trivial.
 
 ## Ao quebrar um documento de produto em tasks
 

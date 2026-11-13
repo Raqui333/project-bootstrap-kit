@@ -42,7 +42,6 @@ project-bootstrap-kit/
 ├── skills/                      # skills agnósticas (copiar para .claude/skills/)
 │   ├── setup-projeto/           # instala o kit num projeto e sincroniza atualizações depois
 │   ├── criar-task/
-│   ├── refinar-task/            # definição de pronto: entender antes de implementar
 │   ├── concluir-task/
 │   ├── interpretar-story/       # story de produto → leitura técnica (genérico × particular)
 │   ├── criar-rfc/               # RFC a partir de story/problema, com evidência e hipóteses
@@ -108,8 +107,8 @@ deste tipo de projeto com agentes de codificação:
 | Erro de infraestrutura vaza detalhe sensível/stack trace para o cliente | `docs/best-practices/tratamento-de-erros.md` |
 | Testes usam mocks que mascaram bugs reais de integração | `docs/best-practices/testes.md` |
 | Pipeline de CI cresce sem cobrir os mesmos checks que rodam localmente | `docs/best-practices/ci-cd.md` |
-| Requisito mal interpretado; item `[PROPOSTA]` do PRD implementado como fato e revertido | skill `refinar-task` (Origem literal, Entendimento, perguntas bloqueantes) |
-| Pendência/decisão descoberta no meio da execução ("1. Decidir se...") | `refinar-task` + `criar-task` (decisão vira task própria); campo "Dependências externas" |
+| Requisito mal interpretado; item `[PROPOSTA]` do PRD implementado como fato e revertido | seção "Origem" e "Perguntas em aberto" do template de task |
+| Pendência/decisão descoberta no meio da execução ("1. Decidir se...") | skill `criar-task` (decisão vira task própria); campo "Dependências externas" |
 | Task curta demais: esquece consumidor, caminho de escrita, caso de borda | seções "Mapa de impacto" e "Casos de borda" do template de task |
 | RFC com perguntas em aberto sem dono, implementada mesmo assim | `docs/rfcs/TEMPLATE.md` (pendência de produto com dono, bloqueio e resposta datada) |
 | Story de produto amarrada a um cliente, com contradições e detalhe de implementação inventado | skill `interpretar-story` (núcleo genérico × configuração por cliente) |

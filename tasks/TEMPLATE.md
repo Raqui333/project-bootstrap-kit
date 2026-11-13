@@ -3,11 +3,6 @@
 Copie este arquivo para criar uma nova tarefa. **Preencha todos os campos.**
 Remova esta seção de instruções.
 
-> **Antes de implementar**, a task precisa estar **Pronta** (ver skill
-> `refinar-task`): nenhuma pergunta bloqueante em aberto, premissas críticas
-> verificadas e mapa de impacto preenchido. Task com "Decidir X" como passo de
-> implementação não está pronta — a decisão vira uma task própria antes.
->
 > **Ao concluir a tarefa**, marque cada critério de aceite com a evidência e
 > renomeie o arquivo prefixando `(DONE) ` (ex.: `(DONE) 0001-nome-da-tarefa.md`),
 > seguindo a skill `concluir-task`.
@@ -21,7 +16,6 @@ Remova esta seção de instruções.
 | Campo              | Valor           |
 | ------------------ | --------------- |
 | **Fase/Épico**     | `<fase0X-nome ou "--" se backlog não tiver fases>` |
-| **Prontidão**      | `Rascunho` `Bloqueada (ver Perguntas)` `Pronta` |
 | **Dificuldade**    | `Fácil` `Média` `Difícil` |
 | **Prioridade**     | `Alta` `Média` `Baixa`    |
 | **Estimativa humano** | `X–Y h`      |

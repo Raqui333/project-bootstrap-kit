@@ -3,7 +3,7 @@
 Registro consolidado de comportamentos não óbvios de bibliotecas, frameworks,
 runtimes e sistemas externos descobertos neste projeto. Consulte **antes** de
 investigar um bug que "não faz sentido" e **antes** de planejar uma task que
-toque a área (a skill `refinar-task` faz isso).
+toque a área.
 
 Regras:
 

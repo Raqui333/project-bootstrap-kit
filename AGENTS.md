@@ -31,10 +31,6 @@ O retrabalho mais caro neste tipo de projeto vem de começar cedo demais, não
 de bug de código. Ver `docs/best-practices/descoberta-e-requisitos.md` para
 os casos reais por trás de cada regra.
 
-- **Task não trivial só é implementada quando está `Pronta`** (skill
-  `refinar-task`): pedido original registrado literalmente, entendimento
-  reformulado, mapa de impacto feito a partir do código, premissas críticas
-  verificadas, sem pergunta bloqueante em aberto.
 - **Proposta não é requisito.** Item do documento de produto marcado como
   `[PROPOSTA]`, "validar", "candidato", "a definir" vira pergunta ou task de
   decisão — nunca implementado como fato.
